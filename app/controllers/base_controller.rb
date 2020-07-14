@@ -54,7 +54,7 @@ class BaseController
   end
 
   def redirect_to(uri)
-    [302, { 'Location' => uri } []]
+    [302, { 'Location' => uri }, []]
   end
 
   def params
