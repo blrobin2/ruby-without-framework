@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-# A representation of a beautiful dog
-class Dog
-  attr_accessor :id, :name
+require_relative './base.rb'
 
-  def initialize(id: nil, name: nil)
-    @id = id
+# A representation of a beautiful dog
+class Dog < Base
+  attr_accessor :name
+
+  def initialize(name: nil)
     @name = name
   end
 end
