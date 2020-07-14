@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'erb'
+
 # A convience class for handling responses to requests passed into controllers
 class BaseController
   attr_reader :request
@@ -37,7 +39,8 @@ class BaseController
   end
 
   def render_erb_file(file_path)
-    File.read(file_path)
+    raw = File.read(file_path)
+    ERB.new(raw).result(binding)
   end
 
   def redirect_to(uri)
