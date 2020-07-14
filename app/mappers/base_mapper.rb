@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'pstore'
+require 'yaml/store'
 
 # Handles mapping columns to persistence
 class BaseMapper
-  DB_FILE = File.expand_path('../../db.pstore', __dir__)
+  DB_FILE = File.expand_path('../../db.yml', __dir__)
 
   # Methods available to class
   module ClassMethods
@@ -44,7 +44,7 @@ class BaseMapper
     private
 
     def db
-      @db ||= PStore.new(DB_FILE)
+      @db ||= YAML::Store.new(DB_FILE)
     end
 
     def model_name(mapper_name = name)
