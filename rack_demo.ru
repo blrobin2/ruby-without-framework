@@ -1,3 +1,6 @@
 # frozen_string_literal: true
 
-run(proc { |_env| ['200', { 'Content-Type' => 'text/html' }, ['Hello World']] })
+require_relative './application.rb'
+
+use Rack::Reloader, 0
+run Application.new
