@@ -1,7 +1,5 @@
 <html lang="en">
-  <head>
-    <title><%= @title %></title>
-  </head>
+  <%= render_partial 'head' %>
   <body>
     <h1><%= @title %></h1>
     <form action="/dogs" method="POST">
