@@ -7,17 +7,14 @@ class DogsController < BaseController
   # GET /dogs
   def index
     @title = 'So many dogs'
-    @dogs = (1..5).map do |i|
-      OpenStruct.new(id: i, name: "Dog-#{i}")
-    end
+    @dogs = DogMapper.all
     build_response render_template
   end
 
   # GET /dogs/:id
   def show
-    dog_name = "Dog-#{params[:id]}"
-    @title = "#{dog_name}'s page"
-    @dog = OpenStruct.new(id: params[:id], name: dog_name)
+    @dog = DogMapper.find(params[:id])
+    @title = "#{@dog.name}'s page"
     build_response render_template
   end
 
@@ -30,6 +27,8 @@ class DogsController < BaseController
   # POST /dogs
   # TODO: Not implemented for now
   def create
+    dog = Dog.new(name: params['dog']['name'])
+    DogMapper.save(dog)
     redirect_to '/dogs'
   end
 end
