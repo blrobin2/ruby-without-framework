@@ -13,7 +13,8 @@ class DogsController < BaseController
 
   # GET /dogs/:id
   def show
-    @dog = DogMapper.find(params[:id])
+    puts params
+    @dog = params['name'] ? DogMapper.find_by_name(params['name']) : DogMapper.find(params[:id])
     @title = "#{@dog.name}'s page"
     build_response render_template
   end
