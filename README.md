@@ -5,3 +5,4 @@ Rails is powerful, but much of what it does is more convenience than necessity. 
 ### To Run Example
 * Run `bundle binstubs`
 * Run `bin/rackup rack_demo.ru`
+* Visit `localhost:9292`
