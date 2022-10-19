@@ -2,4 +2,4 @@
 
 source 'https://rubygems.org'
 gem 'pry'
-gem 'rack'
+gem 'rack', '>= 2.2.3.1'
